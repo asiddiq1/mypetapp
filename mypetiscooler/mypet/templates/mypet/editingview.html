@@ -1,0 +1,43 @@
+
+<!--{% load staticfiles %}-->
+
+
+<!--<link rel="stylesheet" type="text/css" href="{% static 'mypet/editview.css' %}" />-->
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>-->
+<!--<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>-->
+
+<!--{% for info in petobjects %}-->
+
+
+    <!--<form style="margin-bottom:-90px;" name='info_form' action="" role="form" method="post">-->
+        <!--{% csrf_token %}-->
+        <!--<img class='imgedit' src="/media/{{ info.photo }}/" width="300" height="220" align="middle" /></br>-->
+        <!--<b>Petname:</b></br>-->
+        <!--<input class="petinfo_names" style="margin-bottom: 3px; font-size:25px; height: 35px; width: 200px;" type="text" value="{{info.petname}}" name="petname"></br>-->
+
+
+        <!--<b>Species:</b></div>-->
+        <!--<select class="petinfo_type" style="font-size:25px; height:35px; width:75px;" name="species">-->
+        <!--<option value="{{info.species}}" selected hidden>{{info.species}}</option>-->
+        <!--<option value="dog">dog</option>-->
+        <!--<option value="cat">cat</option>-->
+        <!--<option value="bird">bird</option>-->
+        <!--<option value="fish">fish</option>-->
+        <!--</select>-->
+
+        <!--<button name="submit" value="saveinfo" type="submit" class="savechangebtn">Save Changes</button>-->
+
+    <!--</form>-->
+
+
+
+
+
+
+    <!--<div class="links">-->
+        <!--<a href="{% url 'edit_post' pk=info.pk %}">Edit pet</a>&nbsp;-->
+    <!--<a href="{% url 'deletepet' petdelete=info.pk %}"> Delete pet </a>&nbsp;-->
+    <!--<a href=""> Add Photo </a>&nbsp;</div>-->
+
+
+<!--{% endfor %}-->

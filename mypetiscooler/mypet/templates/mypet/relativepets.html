@@ -1,0 +1,51 @@
+{% load staticfiles %}
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"></link>
+<link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="{% static 'mypet/relativeimage.css' %}" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+
+
+<!--<h1 style="text-align: center">{{petname}}</h1>-->
+
+<!--<img style="text-align:center" class='imgedit' src="/media/{{ battleimage.image }}/" width="300" height="220" align="middle" />-->
+
+
+<!--<h2 style="text-align:center">Select image to battle</h2>-->
+
+<ul>
+{% for photos in petimages %}
+
+        <form enctype="multipart/form-data" action="" method="post">
+            {% csrf_token %}
+
+            <input id="prodId" class="image1pk" name="image1" type="text" value={{imageid}} style="display:none" required>
+
+            <li><input class="check1" type="checkbox" name="image2" value={{photos.pk}} id="cb{{forloop.counter}}" />
+            <label for="cb{{forloop.counter}}"><img src="/media/{{ photos.image }}/" /></label>
+        </li>
+
+        <button name="submit" value="savephoto" type="submit" class="savephotobtn">Add Photo</button>
+
+        </form>
+
+    <!--<div class="column" style="text-align:center;"><a href=""><img class='imgedit' src="/media/{{ photos.image }}/" width="260" height="230" /></a></div>-->
+
+
+
+{% endfor%}
+</ul>
+
+<script>
+
+    $('.check1').on('change', function() {
+   if($('.check1:checked').length > 1) {
+       this.checked = false;
+   }
+    });
+
+</script>

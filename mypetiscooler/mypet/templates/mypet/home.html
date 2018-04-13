@@ -1,0 +1,77 @@
+{% load staticfiles %}
+
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"></link>
+<link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="{% static 'mypet/style.css' %}" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+
+<!--Navigation Bar -->
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topNavBar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+
+            </button>
+            <a class="navbar-brand" href="">mypetiscooler</a>
+
+        </div>
+
+            <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-left">
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="">
+                    <a href="#">
+                        <button data-toggle="modal" onclick="$('#hide_tag').hide();" data-target="#myModal" style="width:auto;"class="btn btn-danger">Sign Up </button>
+                    </a>
+                </li>
+
+                <li class="">
+                    <a>
+                        <button data-toggle="modal" onclick="$('#hide_tags').hide();" data-target="#myModalSignin" class="btn signin">Sign In </button>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</nav>
+
+<!--Animal Images-->
+
+<div class="animalimgs">
+<img class="mySlides" src="{% static 'mypet/images/petdog.jpg' %}" alt="Dog">
+<img class="mySlides" src="{% static 'mypet/images/mice.jpeg' %}" alt="mice">
+<img class="mySlides" src="{% static 'mypet/images/catdoor.jpeg' %}" alt="catdoor">
+<img class="mySlides" src="{% static 'mypet/images/catsleep.jpeg' %}" alt="catsleep">
+<script src="{% static 'mypet/animations.js' %}"></script>
+</div>
+
+
+
+<!--Signup and Login Forms-->
+
+{% include "mypet/modal_form.html" %}
+{% include "mypet/registration_form.html"  %}
+{% include "mypet/login_form.html"  %}
+
+
+
+
+
+
+
+
+<!--<h1>Welcome to mypetiscooler! Sign up your pet today!</h1>-->
+
+

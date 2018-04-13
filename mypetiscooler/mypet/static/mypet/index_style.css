@@ -1,0 +1,192 @@
+body{
+
+    background-image: url("images/pawsbackground.jpg");
+    background-size: cover;
+    max-width: 100%;
+    overflow-x: hidden;
+    font-family: Arial;
+}
+
+.navbar{
+    border-radius: 0;
+    }
+
+.navbar-brand{
+    font-family: 'Satisfy',cursive;
+    font-size: 30;
+    }
+
+.logout{
+    background-color: #4CAF50;
+    color: white;
+
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    height: 5%;
+    margin-right: 10px;
+    margin-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+
+
+}
+
+.dropdown-toggle::after {
+    display: none;
+}
+
+.modal-content {
+  width: 400px;
+  margin-left: 100px;   /*put modal in the center Left Margin = (600px – [New Width]) / 2 */
+
+}
+
+.mySlides{
+
+    z-index: 2;
+    margin-top: -20px;
+    margin-right: 0px;
+    margin-left: 30px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+
+    padding-bottom: 0px;
+    padding-left: 20px;
+
+
+
+
+
+}
+.mySlides img {
+    margin: 80px;
+    height: 250px;
+    width: 250px;
+    border-radius: 10%;
+    opacity: 1;
+    margin-right: 50px;
+
+
+
+}
+
+
+
+
+* {box-sizing:border-box}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Hide the images by default */
+.mySlides {
+    display: none;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 10;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev {
+  left: 10;
+  border-radius: 3px 0 0 3px;
+}
+
+
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+
+.centervs {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 70;
+    color: black;
+
+
+}
+
+
+
+
+.whichone{
+
+    text-align:center;
+    font-size: 50;
+    margin-bottom: -50px;
+    margin-top: 50px;
+    z-index: 3;
+
+}
+
+
+.centered {
+    position: absolute;
+    top: 90%;
+    left: 27%;
+    transform: translate(-50%, -50%);
+    font-size: 70;
+    color: black;
+}
+
+.centered2 {
+    position: absolute;
+    top: 90%;
+    left: 75%;
+    transform: translate(-50%, -50%);
+    font-size: 70;
+    color: black;
+}
+
+
+
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+

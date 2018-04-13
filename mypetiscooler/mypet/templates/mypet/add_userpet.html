@@ -1,0 +1,146 @@
+{% load staticfiles %}
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"></link>
+<link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="{% static 'mypet/addpet.css' %}"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+
+{% include "mypet/navbar.html" %}
+
+{% if messages %}
+                <ul class="messages" style="list-style-type:none">
+                    {% for message in messages %}
+                <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>
+                    <div class="alert">
+                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                    {{ message }}
+                    </div>
+
+                </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+
+<div class="containers">
+
+        <form id="post_form" method="post" action="" enctype="multipart/form-data">
+
+            {% csrf_token %}
+
+
+
+            <h1 style="margin-left:400px; color:black; font-family:Geneva;">Add Pet </h1>
+
+            </br>
+            <div class="col-25">
+                <label style="color:#0C0C0B; font-size:20px;" for="id_username">Pet Name</label>
+            </div>
+            <div class="col-75"><input type="text" name="petname" id="id_username" required></div>
+            </br>
+            <!--<tbody id = "inputboxes"></tbody>-->
+
+            <div class="col-25">
+                <label style="color:#0C0C0B; font-size:20px;" for="speciestype">Species</label>
+            </div>
+
+            <div class="col-75">
+                <select id=speciestype name="species">
+                    <option value="dog">dog</option>
+                    <option value="cat">cat</option>
+                    <option value="bird">bird</option>
+                    <option value="fish">fish</option>
+                </select></br></br></div>
+
+            <div class="col-25">
+                <label class="i" style="color:#0C0C0B; font-size:20px;" for="speciestype">Image</label>
+            </div>
+
+
+            <input id='inp' type="file" name="image" id="id_form-0-image"/></br>
+            <!--<input type="file" name="image" id="id_form-1-image" /></br>-->
+
+
+            </br>
+
+
+
+
+            <input type="submit" name="submit" value="Submit"/>
+
+
+
+        </form>
+
+        <!--<p><a href="{% url 'index' %}"><button>Return to home</button></a></p>-->
+</div>
+
+<script>
+      $(document).ready(function(){
+        var i = 0
+        $('.add_more').click(function(e){
+
+          $(#inputboxes).append("<input type="file" name="form-"+(i++)+"-image" id="id_form-"+(i++) + "-image" /><input type="hidden" name="form-"+(i++)+"-id" id="id_form-"+(i++)+"-id" />");
+        });
+      });
+
+</script>
+
+
+<!--<form action="" role="form" method="post" enctype="multipart/form-data" >-->
+<!--{% csrf_token %}-->
+<!--<div class="container">-->
+<!--<h1 style="color:black">Add Pet </h1>-->
+
+
+<!--<input type="pet" placeholder="Pet Name" name="petname" id="id_username" required></div></br>-->
+
+
+<!--<select name="species">-->
+<!--<option value="dog">dog</option>-->
+<!--<option value="cat">cat</option>-->
+<!--<option value="bird">bird</option>-->
+<!--<option value="fish">fish</option>-->
+<!--</select></br></br>-->
+
+<!--<input type = "file" name="photo"/></br></br>-->
+<!--{% block content %}-->
+<!--<img src="{{ petform.photo.url }}">-->
+<!--{% endblock %}-->
+
+<!--<div class="clearfix">-->
+<!--&lt;!&ndash;<button type="button" class="cancelbtn">Cancel</button>&ndash;&gt;-->
+<!--<button type="submit" value="submit" id="submit">Add Pet</button>-->
+<!--</div>-->
+<!--</div>-->
+<!--</form>-->
+
+
+
+
+
+
+
+
+
+
+
+
+{% if petform.errors %}
+<h1>{{petform.errors}}
+    <h2>
+
+        {% endif %}
+
+
+        {% for item in formset %}
+        <h1>{{item.image.errors}}
+            <h2>
+                {% endfor %}
+
+

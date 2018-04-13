@@ -1,0 +1,122 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"></link>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="{% static 'mypet/editview.css' %}" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+
+
+{% include "mypet/navbar.html" %}
+
+
+<div class="petgallery">
+
+    </br>
+    <h1 align="center" style="font-family:courier; color:black; font-size:40px">MyPets Gallery</h1>
+    {% for pets, values in images_petname.items %}
+        </br></br>
+
+        {% for photos in values %}
+        <img class='imgedit' src="/media/{{ photos.0 }}/" width="300" height="220" align="middle" />
+
+            {{photos.1}}
+        <button class="deleteimg"><a href="{% url 'deletepetimage' deleteimg=photos.1 %}"> Delete Pet Image</a></button>
+        </br>
+        {% endfor %}
+
+
+
+
+
+        <!--<b>Petname:</b></br>-->
+        <!--<b>Species:</b>-->
+
+
+
+
+
+    <form action="{% url 'edit_post' pk=pets.pk %}" style="margin-bottom:-90px;" name='info_form' action="" role="form" method="post">
+        {% csrf_token %}
+
+        <div class="petinfo">
+        <div class="col-75">
+                <label style="color:#0C0C0B; font-size:20px;" for="petname">Pet Name:</label>
+
+
+
+
+
+        <input id="petname" class="petinfo_name" style="font-size:25px; height: 35px; width: 200px;" type="text" value="{{pets.petname}}" name="petname" required></br>
+        </div>
+
+        <div class="col-75">
+            <label style="color:#0C0C0B; font-size:20px;" for="speciestype">Species:</label>
+
+
+        <select id="speciestype" class="petinfo_type" style="font-size:25px; height:35px; width:200px;" name="species">
+        <option value="{{pets.species}}" selected hidden>{{pets.species}}</option>
+        <option value="dog">dog</option>
+        <option value="cat">cat</option>
+        <option value="bird">bird</option>
+        <option value="fish">fish</option>
+        </select></br></br>
+        </div>
+        </div>
+
+        <button name="submit" value="saveinfo" type="submit" class="savechangebtn">Save Info</button>
+
+
+    </form>
+
+     <form action="{% url 'addphoto' mypetpk=pets.pk  %}" name='addphotoform' action="" role="form" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <!--<input  id="petname{{ forloop.counter }}" class="petinfo_name" style="margin-bottom: 3px; font-size:25px; height: 35px; width: 200px;" type="text" value="{{pets.petname}}" name="petname"></br>-->
+        <!--<input  class="petinfo_name" style="margin-bottom: 3px; font-size:25px; height: 35px; width: 200px;"  type="text" value="{{pets.species}}" name="species"></br>-->
+        <div class="col">
+         <input type="file" name="image"></br>
+
+        <!--<input type="file" name="addpetimg" id="id_form-0-image" /></br>-->
+        <!--<tr><th><label for="id_form-0-image"></label></th><td><input type="file" name="form-0-image" id="id_form-0-image" /><input type="hidden" name="form-0-id" id="id_form-0-id" /></td></tr></br>-->
+
+        <button name="submit" value="savephoto" type="submit" class="savephotobtn">Add Photo</button>
+        </div>
+    </form>
+
+
+
+
+    <div class="links">
+
+        <a id="editpet" href=""></a>&nbsp;
+    <a href=""> Delete pet </a>&nbsp;
+    <a href=""> </a>&nbsp;</div>
+
+    {%endfor%}
+
+</div>
+
+
+<script>
+
+    function Editshow() {
+
+    if($("#editpet").data('clicked'))
+{
+}
+    var x = document.getElementsByClassName("deleteimg");
+    alert(x);
+    var y= document.getElementsByClassName("savechangebtn");
+    x.style.display == "block";
+    y.style.display == "block";
+}
+    function Addphoto() {
+
+
+}
+
+
+</script>
+

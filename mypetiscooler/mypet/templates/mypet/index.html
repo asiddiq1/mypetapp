@@ -1,0 +1,288 @@
+{% load staticfiles %}
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"></link>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="{% static 'mypet/index_style.css' %}" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+
+
+
+
+{% include "mypet/navbar.html" %}
+
+
+<div class="slideshow-container">
+{% for photos in battle_list %}
+
+
+    <div class="mySlides" style="text-align:center;">
+
+        <div>
+            <label class="whichone">Which {{photos.0.mypets.species}} is cooler?</label>
+        </div>
+        <div class="imag1div" style="float:left; width:100 px">
+        <a class="likebutton" id="hello{{forloop.counter}}" href="#" data-battleid="{{photos.3}}" data-battleinstance="{{photos.2.image1}}">
+        <img id="image{{forloop.counter}}" class='imgedit' src="/media/{{ photos.0.image }}/" />
+
+        </a>
+            <label class='centervs'>VS</label>
+
+        </div>
+    <div><a class="likebutton" id="wello" href="#" data-battleid="{{photos.3}}" data-battleinstance="{{photos.2.image2}}"><img id="imaget{{forloop.counter}}" class='iedit' src="/media/{{ photos.1.image }}/" /></a>
+
+
+
+    </div>
+
+
+
+
+
+    </div>
+
+
+
+    <label class='centered' id="meow"></label>
+    <label class='centered2' id="meow2"></label>
+
+
+
+    <a class="prev" onclick="plusSlides(-1); hide(); ">&#10094;</a>
+    <a class="next" onclick="plusSlides(1); hide(); ">&#10095;</a>
+
+
+
+
+
+{% endfor%}
+</div>
+
+
+
+<!--<div id="myModal" class="modal fade" role="dialog">-->
+    <!--<div class="modal-dialog">-->
+        <!--<div class="modal-content">-->
+            <!--<h4 class="modal-title">Modal Header</h4>-->
+            <!--<div class="modal-body">-->
+                <!--{% for pets, values in images_petnames.items %}-->
+                    <!--{% for photos in values %}-->
+                        <!--<img class='imgedit' src="/media/{{ photos.0 }}/" width="300" height="220" align="middle" />-->
+                    <!--{% endfor %}-->
+                <!--{% endfor %}-->
+            <!--</div>-->
+
+            <!--<div class="modal-footer">-->
+                <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+
+<!--<script type="text/javascript">-->
+
+
+<!--var i1 = 0;-->
+<!--var i2 = 0;-->
+
+<!--function incrementValue(){-->
+
+    <!--document.getElementById('image1').value = ++i1;-->
+    <!--document.getElementById('image2').value = ++i2;-->
+
+
+<!--}-->
+
+<!--function calculateimage1(){-->
+
+    <!--var image1 = Number(document.getElementsById("image1").value);-->
+    <!--var image2 = Number(document.getElementsById("image2").value);-->
+    <!--var total = ((image1)/(image1 + image2)) * 100-->
+    <!--document.write(total);-->
+    <!--window.alert(total)-->
+
+<!--}-->
+
+
+
+
+
+<!--function showimage(id, id2){-->
+    <!--if (typeof document.getElementById(id).value  == 'undefined')-->
+    <!--{-->
+        <!--document.getElementById(id).value = 0;-->
+    <!--}-->
+
+    <!--var x = document.getElementById(id).value;-->
+    <!--x = x + 1;-->
+    <!--document.getElementById(id).value = x-->
+    <!---->
+
+    <!--window.alert(document.getElementById(id).value);-->
+    <!--return document.getElementById(id).value-->
+
+
+<!--}-->
+
+
+
+<!--</script>-->
+
+
+
+
+<script>
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var show = document.getElementById('meow');
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+
+
+
+  }
+
+  slides[slideIndex-1].style.display = "block";
+
+
+
+
+}
+
+function show(rssId, rssId2){
+
+   document.getElementById(rssId).setAttribute("style","opacity:0.7; -moz-opacity:0.7; filter:alpha(opacity=70)");
+   document.getElementById(rssId2).setAttribute("style","opacity:0.7; -moz-opacity:0.7; filter:alpha(opacity=70)");
+
+
+
+}
+
+
+function hide() {
+
+    document.getElementById('meow').style.display = 'none';
+    document.getElementById('meow2').style.display = 'none';
+
+
+
+
+
+
+}
+
+
+
+</script>
+
+
+<script type="text/javascript">
+
+    $('body').on('click', '.likebutton', function(){
+
+
+
+    var rssId = $(this).children('img').attr('id');
+
+    var rssId2 = ""
+    if (rssId.includes('imaget')){
+
+
+        var num = rssId.substring('imaget'.length);
+        var rssId2 = 'image' + num;
+
+    }
+    else{
+
+        var num = rssId.substring('image'.length);
+        var rssId2 = 'imaget' + num;
+
+    }
+
+
+
+    var battleid;
+    var battleinstance;
+    battleid = $(this).attr("data-battleid");
+    battleinstance = $(this).attr("data-battleinstance");
+
+
+    $.ajax(
+    {
+        url: "total_score/"+battleid+'/'+battleinstance+'/',
+
+
+        success: function( data )
+        {
+            var total1 = Math.round((data.image1count/(data.image2count+data.image1count) * 100)).toString();
+            var total2 = Math.round((data.image2count/(data.image2count+data.image1count) * 100)).toString();
+
+            var new1 = total1+'%';
+            var new2 = total2+'%';
+
+           document.getElementById('meow').style.display = 'block';
+           document.getElementById('meow2').style.display = 'block';
+
+           $('#meow').html(new1);
+           $('#meow2').html(new2);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        }
+     });
+
+
+
+});
+</script>
+
+
+
+
+
+
+{% if user.is_authenticated %}
+    <p>Welcome, {{ user.get_username }}. Thanks for logging in.</p>
+{% else %}
+    <p>Welcome, new user. Please log in.</p>
+{% endif %}
+

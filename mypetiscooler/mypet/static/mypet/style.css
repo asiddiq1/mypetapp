@@ -1,0 +1,152 @@
+body{
+
+    background-image: url("images/pawsbackground.jpg");
+    background-size: cover;
+    max-width: 100%;
+    overflow-x: hidden;
+    font-family: Arial;
+}
+
+.navbar{
+    border-radius: 0;
+    }
+
+.navbar-brand{
+    font-family: 'Satisfy',cursive;
+    font-size: 30;
+    }
+
+.signin{
+    color:white;
+    background-color:black;
+    font-size: 14;
+    border-color: white;
+    width: 80px;
+    margin-right: 12px;
+    margin-left: -5px;
+
+
+}
+.signin:hover{
+    background-color: #F7F2F1;
+    color: black;
+}
+
+.btn-danger{
+    font-size: 14;
+    width: 80px;
+
+}
+
+.mySlides{
+    width:500px;
+    height:400px;
+    top: 90px;
+    position: absolute;
+    left: 90px;
+    border-radius: 4%;
+    padding:1px;
+
+}
+
+input[type=text], input[type=password], input[type=username] {
+    width: 20%;
+    padding: 5px;
+    margin: -10px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+    border-radius: 5px;
+}
+
+input[type=text]:focus, input[type=password]:focus, input[type=username]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+/* Set a style for all buttons */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 5px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.7;
+}
+
+button:hover {
+    opacity:1;
+}
+
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+    padding: 5px 20px;
+    background-color: #f44336;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.signupbtn {
+  float: left;
+  width: 10%;
+}
+
+/* Add padding to container elements */
+.container {
+    position: relative;
+    padding: 15px;
+    left: 600px;
+    bottom: 10px;
+    right: auto;
+
+
+}
+
+.sigup {
+  float: left;
+  width: 100%;
+  height: 10%;
+}
+
+
+.modal-content {
+  width: 400px;
+  margin-left: 100px;   /*put modal in the center Left Margin = (600px – [New Width]) / 2 */
+
+}
+
+
+.modal-header .close {
+    position: fixed;
+    top: 10px;
+    right: 110px;
+    width: 23px;
+    height: 23px;
+    opacity: 1;
+    z-index: 10;
+}
+
+.modal-body .user_taken{
+
+    float:right;
+
+}
+
+
+.logout{
+    background-color: #4CAF50;
+    color: white;
+
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    height: 5%;
+    margin-right: 10px;
+    margin-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+
+
+}

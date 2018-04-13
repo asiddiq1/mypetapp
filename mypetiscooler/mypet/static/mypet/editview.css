@@ -1,0 +1,93 @@
+body{
+
+    background-image: url("images/pawsbackground.jpg");
+    background-size: cover;
+    max-width: 100%;
+    overflow-x: hidden;
+    font-family: Arial;
+    background-attachment: fixed;
+
+}
+
+.navbar-brand{
+    font-family: 'Satisfy',cursive;
+    font-size: 30;
+    }
+
+
+.imgedit{
+
+    position: relative;
+    left: 100px;
+    border-radius: 4%;
+    padding:1px;
+
+
+}
+
+.col-25 {
+
+
+
+    width: 10%;
+    margin-top: 0px;
+
+}
+
+.petinfo{
+    position: relative;
+    left: 500px;
+    bottom: 200px;
+    font-size: 30px;
+
+}
+
+.links{
+    position:relative;
+    left: 500px;
+    bottom: 150px;
+
+}
+
+
+
+
+
+.savechangebtn{
+    position:relative;
+    left: 500px;
+    bottom: 200px;
+
+}
+
+.deleteimg{
+    position:absolute;
+    left: 275px;
+
+}
+
+.col{
+
+    position:relative;
+    left: 680px;
+    bottom: 130px;
+
+}
+
+.logout{
+    background-color: #4CAF50;
+    color: white;
+
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    height: 5%;
+    margin-right: 10px;
+    margin-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+
+
+}
+
+
